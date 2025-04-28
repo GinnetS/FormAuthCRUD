@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestión de Estudiantes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Gestión de Estudiantes</h1>
+
+    <form id="estudiante-form">
+      <input type="hidden" id="id" name="id" />
+      <label>Nombre: <input type="text" name="nombre" required /></label>
+      <label>Edad: <input type="number" name="edad" required /></label>
+      <label>Carrera: <input type="text" name="carrera" required /></label>
+      <label>Ciudad: <input type="text" name="ciudad" required /></label>
+      <label>
+        Estado:
+        <select id="estado" name="estado" required>
+          <option value="Activo">Activo</option>
+          <option value="Inactivo">Inactivo</option>
+        </select>
+      </label>
+      <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Lista de Estudiantes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th><th>Edad</th><th>Carrera</th><th>Ciudad</th><th>Estado</th><th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="estudiantes-table"></tbody>
+    </table>
+  </div>
+
+</body>
+
+<script src="estudiantes.js"></script>
+</html>
