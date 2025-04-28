@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 
-app.use('/estudiantes', estudiantesRouter);
+app.use('/api/form', estudiantesRouter);
 
 app.listen(3000, () => {
   console.log('Servidor corriendo en http://localhost:3000');

@@ -1,6 +1,6 @@
 const form = document.getElementById('estudiante-form');
 const table = document.getElementById('estudiantes-table');
-const apiUrl = '/estudiantes';
+const apiUrl = '/api/form';
 
 function loadEstudiantes() {
   fetch(apiUrl)
