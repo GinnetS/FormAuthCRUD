@@ -3,7 +3,7 @@ import { pool } from '../db';
 
 const router = Router();
 
-// Crear estudiante
+
 router.post('/', async (req, res) => {
   try {
     const { nombre, edad, carrera, ciudad, estado } = req.body;
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Listar estudiantes
+
 router.get('/', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM estudiantes');
@@ -28,7 +28,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Actualizar estudiante
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -43,7 +42,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Eliminar estudiante
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
