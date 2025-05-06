@@ -3,3 +3,4 @@
 {"level":"info","message":"hello","service":"app.ts"}
 {"level":"info","message":"Servidor corriendo en http://localhost:3000","service":"app.ts"}
 {"level":"info","message":"Usuario creado","service":"create-user.ts"}
+{"level":"info","message":"Usuario creado","service":"Create-user","timestamp":"2025-05-06T03:56:47.802Z"}

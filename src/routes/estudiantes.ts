@@ -1,19 +1,23 @@
 import { Router } from 'express';
 import { pool } from '../db';
+import { buildLogger } from '../plugins/logger.plugin';
+import { Logger } from 'winston';
 
 const router = Router();
 
 
 router.post('/', async (req, res) => {
+  const logger =  buildLogger("Create-user");
   try {
     const { nombre, edad, carrera, ciudad, estado } = req.body;
-    console.log('Datos recibidos:', req.body); // 
     await pool.query(
       'INSERT INTO estudiantes (nombre, edad, carrera, ciudad, estado) VALUES (?, ?, ?, ?, ?)',
       [nombre, edad, carrera, ciudad, estado]
     );
-    res.status(201).json({ message: 'Estudiante creado' });
+    logger.log('Usuario creado')
+    res.status(201).json({ message: 'Usuario creado' });
   } catch (err: any) {
+    logger.error("Error al crear usuario")
     res.status(500).json({ error: err.message });
   }
 });

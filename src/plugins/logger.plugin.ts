@@ -1,11 +1,14 @@
 import { error } from 'console';
-import { createLogger, format as _format, transports as _transports, format } from 'winston';
+import winston, { createLogger, format as _format, transports as _transports, format } from 'winston';
 
 const { combine, timestamp, json } = format
 
 const logger = createLogger({
     level: 'info',
-    format: _format.json(),
+    format: combine(
+        timestamp(),
+        json(),
+    ),
     //defaultMeta: { service: 'user-service' },
     transports: [
         //
@@ -21,6 +24,10 @@ const logger = createLogger({
     ],
 
 });
+
+logger.add(new winston.transports.Console({
+    format: winston.format.simple(),
+  }));
 
 export const buildLogger = (service: string) => {
     return {
